@@ -1,4 +1,5 @@
 const winston = require("winston");
+const config = require("config");
 require("winston-mongodb");
 require("express-async-errors");
 
@@ -13,7 +14,5 @@ module.exports = function() {
   });
 
   winston.add(new winston.transports.File({ filename: "logfile.log" }));
-  winston.add(
-    new winston.transports.MongoDB({ db: "mongodb://localhost/coolshop" })
-  );
+  winston.add(new winston.transports.MongoDB(config.get("db")));
 };
