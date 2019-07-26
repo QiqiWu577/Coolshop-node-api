@@ -1,3 +1,4 @@
 {
-  "jwtPrivateKey": "coolshop_jwtPrivateKey"
+  "jwtPrivateKey": "coolshop_jwtPrivateKey",
+  "db": "coolshop_db"
 }

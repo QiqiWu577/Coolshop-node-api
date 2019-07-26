@@ -1,10 +1,12 @@
 const winston = require("winston");
 const mongoose = require("mongoose");
+const config = require("config");
 
 module.exports = function() {
   mongoose.set("useCreateIndex", true);
 
+  const db = config.get("db");
   mongoose
-    .connect("mongodb://localhost/coolshop", { useNewUrlParser: true })
-    .then(() => console.log("Connectiong to MongoDB"));
+    .connect(db, { useNewUrlParser: true })
+    .then(() => winston.info(`Connected to ${db}...`));
 };
